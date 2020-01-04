@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        ul#menu li {
+            display: inline;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Lista de productos</h2>
+
+    <ul id="menu">
+        @foreach (Producto p in Count(ViewData["Productos"]))
+        {
+        <li>HTML</li>
+        }
+    </ul>
+
+</body>
+</html>
