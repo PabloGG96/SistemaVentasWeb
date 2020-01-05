@@ -5,6 +5,8 @@ namespace SistemaVentasWeb.Data
 {
     public class ProductosContext : DbContext
     {
+
+
         public ProductosContext(DbContextOptions<ProductosContext> options) : base(options)
         {
         }

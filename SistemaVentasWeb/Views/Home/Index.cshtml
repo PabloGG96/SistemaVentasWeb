@@ -2,6 +2,8 @@
     ViewData["Title"] = "Home Page";
 }
 
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,14 +15,17 @@
 </head>
 <body>
 
-    <h2>Lista de productos</h2>
-
-    <ul id="menu">
-        @foreach (Producto p in Count(ViewData["Productos"]))
-        {
-        <li>HTML</li>
-        }
-    </ul>
+    @foreach (Producto p in ViewBag.List)
+    {
+    <div class="card" style="width: 18rem;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title"> @p.Nombre</h5>
+            <p class="card-text"> @p.Detalle.Descripcion</p>
+            <a href="Productos/Details/@p.ID" class="btn btn-primary">"Ver detalles"</a>
+        </div>
+    </div>
+    }
 
 </body>
 </html>

@@ -8,8 +8,11 @@ using System.Drawing;
 
 namespace SistemaVentasWeb
 {
+   
     public class Program
     {
+    
+
         public static void Main(string[] args)
         {
 
@@ -30,6 +33,7 @@ namespace SistemaVentasWeb
                 {
                     var context = services.GetRequiredService<ProductosContext>();
                     DbInitializer.Initialize(context);
+                     
                 }
                 catch (Exception ex)
                 {

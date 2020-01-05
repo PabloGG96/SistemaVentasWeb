@@ -14,17 +14,31 @@ namespace SistemaVentasWeb.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+
         private readonly ProductosContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ProductosContext context)
         {
-            _logger = logger;
+            _context = context;
         }
+
+
+        /*  public HomeController(ILogger<HomeController> logger)
+          {
+              _logger = logger;
+          }
+          */
 
         public async Task<IActionResult> IndexAsync()
         {
-            ViewData["Productos"] = await _context.Productos.AsNoTracking().ToListAsync();
-
+            List<Producto> myList = new List<Producto>();
+            var productos = await _context.Productos.Include(d => d.Detalle).AsNoTracking().ToListAsync();
+            foreach (var item in productos)
+            {
+                myList.Add(item);
+            }
+            ViewBag.List = myList;
+            
             return View();
         }
 
